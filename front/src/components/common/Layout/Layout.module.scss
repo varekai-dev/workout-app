@@ -1,13 +1,28 @@
+@import '../../../scss//variables';
+
 .wrapper {
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
-	padding: 30px;
+	padding: 25px;
 	color: #fff;
-	height: 880px;
+	height: 100%;
 	width: 500px;
 	margin: 0 auto;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
+
+	&.otherPage {
+		border-radius: 0 0 20px 20px;
+		box-shadow: $bx-accent;
+		height: 280px;
+	}
+}
+
+.heading {
+	text-transform: uppercase;
+	color: $white;
+	font-size: 28px;
+	font-weight: bold;
 }
