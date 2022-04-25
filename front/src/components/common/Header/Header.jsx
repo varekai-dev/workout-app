@@ -1,7 +1,7 @@
 import styles from './Header.module.scss'
 
 import userImage from '../../../images/header/user.svg'
-import hamburgerImage from '../../../images/header/hamburger.svg'
+import Hamburger from './Hamburger/Hamburger.jsx'
 
 const Header = () => {
 	return (
@@ -9,9 +9,7 @@ const Header = () => {
 			<button>
 				<img src={userImage} alt="Auth" />
 			</button>
-			<button>
-				<img src={hamburgerImage} alt="Auth" />
-			</button>
+			<Hamburger />
 		</header>
 	)
 }
