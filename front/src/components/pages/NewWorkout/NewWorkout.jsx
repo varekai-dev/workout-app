@@ -5,7 +5,6 @@ import Field from '../../ui/Field/Field.jsx'
 import Button from '../../ui/Button/Button.jsx'
 import ReactSelect from 'react-select'
 
-import styles from './NewWorkout.module.scss'
 import { Link } from 'react-router-dom'
 
 const NewWorkout = () => {
@@ -15,7 +14,7 @@ const NewWorkout = () => {
 	return (
 		<>
 			<Layout bgImage={bgImage} heading="Create new workout" />
-			<div className={styles.wrapper}>
+			<div className="wrapper-inner-page">
 				<form onSubmit={handleSubmit}>
 					<Field
 						placeholder="Enter name"
