@@ -1,24 +1,34 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import hamburgerImage from '../../../../images/header/hamburger.svg'
 import hamburgerCloseImage from '../../../../images/header/hamburger-close.svg'
 
 import styles from './Hamburger.module.scss'
 import { menu } from './menuBase.js'
+import { useAuth } from '../../../../hooks/useAuth.js'
+import { useOutsideAlerter } from '../../../../hooks/useOutsideAlerter.js'
 
 const Hamburger = () => {
-	const [show, setShow] = React.useState(false)
-	const handleLogout = () => {}
+	const { setIsAuth } = useAuth()
+	const { ref, isComponentVisible, setIsComponentVisible } =
+		useOutsideAlerter(false)
+
+	const handleLogout = () => {
+		localStorage.removeItem('token')
+		setIsAuth(true)
+		setIsComponentVisible(false)
+	}
 	return (
-		<div className={styles.wrapper}>
-			<button onClick={() => setShow(!show)}>
+		<div className={styles.wrapper} ref={ref}>
+			<button onClick={() => setIsComponentVisible(!isComponentVisible)}>
 				<img
-					src={show ? hamburgerCloseImage : hamburgerImage}
+					src={isComponentVisible ? hamburgerCloseImage : hamburgerImage}
 					alt="Auth"
 					height={24}
 				/>
 			</button>
-			<nav className={`${styles.menu} ${show ? styles.show : ''}`}>
+			<nav
+				className={`${styles.menu} ${isComponentVisible ? styles.show : ''}`}
+			>
 				<ul>
 					{menu.map((item) => (
 						<li key={item.title}>
